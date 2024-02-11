@@ -1,4 +1,6 @@
 # custom
+/images/
+/outputs/
 /models/
 
 # Byte-compiled / optimized / DLL files
