@@ -8,8 +8,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+onnx = "^1.15.0"
 torch = "^2.2.0"
-insightface = "^0.7.3"
 
 
 [build-system]
