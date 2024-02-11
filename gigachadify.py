@@ -1,10 +1,15 @@
 import os
 from pathlib import Path
+from PIL import Image, ImageOps
+import requests
+from io import BytesIO
+
+import numpy as np
 import torch
 import insightface
 
 
-GIGACHAD_IMAGE_PATH = "TODO"
+GIGACHAD_IMAGE_PATH = "images/gigachad.png"
 
 MODELS_DIR = os.path.join(Path(__file__).parent, "models")
 INSIGHTFACE_PATH = os.path.join(MODELS_DIR, "insightface")
@@ -55,8 +60,23 @@ def swap_faces(
     result = face_swapper.get(result, base_face, target_face)
 
 
-def read_image(image_path: str):
-    raise NotImplementedError
+def is_url(image_path: str) -> bool:
+    """Check if the given path is a URL."""
+    return image_path.startswith("http://") or image_path.startswith("https://")
+
+
+def read_image(image_path: str) -> torch.tensor:
+    if is_url(image_path):
+        response = requests.get(image_path)
+        image = Image.open(BytesIO(response.content))
+    else:
+        image = Image.open(image_path)
+
+    image = ImageOps.exif_transpose(image)
+    image = image.convert("RGB")
+    image = np.array(image).astype(np.float32) / 255.0
+    image = torch.from_numpy(image).unsqueeze(0)
+    return image
 
 
 def save_image(image: torch.tensor, output_image_path: str):
@@ -68,14 +88,14 @@ def get_face_swap_model():
 
 
 def gigachadify(input_image_path: str, output_image_path: str):
-    # chad_base = read_image(GIGACHAD_IMAGE_PATH)
-    # input_image = read_image(input_image_path)
+    chad_base = read_image(GIGACHAD_IMAGE_PATH)
+    input_image = read_image(input_image_path)
 
     face_analysis_model = get_face_analysis_model()
 
-    # result = swap_faces(chad_base, input_image, face_analysis_model)
+    result = swap_faces(chad_base, input_image, face_analysis_model)
 
-    # save_image(result, output_image_path)
+    save_image(result, output_image_path)
 
 
 if __name__ == "__main__":
