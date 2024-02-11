@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "gigachadify"
+version = "0.1.0"
+description = "🗿 gigachadify any face"
+authors = ["Giulio Starace <giulio.starace@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+torch = "^2.2.0"
+insightface = "^0.7.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
