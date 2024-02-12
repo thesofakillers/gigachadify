@@ -41,8 +41,8 @@ This project relies on
 license.
 
 This project also relies on
-[Gourieff's ReActor](https://huggingface.co/Gourieff/ReActor) models. Please
-refer to their license.
+[Gourieff's ReActor](https://huggingface.co/datasets/Gourieff/ReActor) models.
+Please refer to their license.
 
 Otherwise, this project is licensed under the MIT License. See
 [LICENSE](LICENSE)
