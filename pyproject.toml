@@ -11,6 +11,7 @@ python = "^3.10"
 onnx = "^1.15.0"
 torch = "^2.2.0"
 insightface = "^0.7.3"
+onnxruntime = "^1.17.0"
 
 
 [build-system]
