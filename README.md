@@ -2,7 +2,7 @@
 
 🗿 gigachadify any face: Put any face onto the Gigachad meme with this script.
 This tool automatically detects a face in your image and swaps it into the
-legendary Gigachad
+legendary Gigachad.
 
 "Giulio did you really make a script that swaps your face into Gigachad?"
 
@@ -50,3 +50,15 @@ Otherwise, this project is licensed under the MIT License. See
 ## Project state
 
 MVP. Quick and dirty, will polish in coming weeks.
+
+TODO:
+
+- [ ] handle multiple faces in the input image.
+- [ ] face restoration.
+- [ ] better setup.
+
+## See also:
+
+- [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
+- [Gourieff's ReActor ComfyUI Node](https://github.com/Gourieff/comfyui-reactor-node)
+- [Insightface](https://github.com/deepinsight/insightface)
